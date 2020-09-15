@@ -1,0 +1,28 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@npm//protoc-gen-ts:index.bzl", "ts_proto_library")
+
+package(default_visibility = ["//visibility:public"])
+
+proto_library(
+    name = "message_proto",
+    srcs = ["message.proto"],
+)
+
+ts_proto_library(
+    name = "message",
+    deps = [
+        ":message_proto",
+    ],
+)
+
+proto_library(
+    name = "other_message_proto",
+    srcs = ["other.message.proto"],
+)
+
+ts_proto_library(
+    name = "other_message",
+    deps = [
+        ":other_message_proto",
+    ],
+)
